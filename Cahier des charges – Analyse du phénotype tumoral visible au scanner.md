@@ -1,16 +1,14 @@
 # Cahier des charges – Analyse du phénotype tumoral visible au scanner
 
-Nov 23, 2026 · @Mélina
-
 ## 1. Contexte
 
-Le projet fil rouge (4 mois, novembre 2026 à février 2027) porte sur la caractérisation quantitative des tumeurs visibles au scanner (CT) et sur la prédiction de leur évolution. Il est proposé par Jules Dupont, data scientist et doctorant au département d'imagerie médicale de Gustave Roussy (sujet de computer vision).
+Ce projet fil rouge porte sur la caractérisation quantitative des tumeurs visibles au scanner (CT) et sur la prédiction de leur évolution. Il est proposé par Jules Dupont, data scientist et doctorant au département d'imagerie médicale de Gustave Roussy.
 
 En oncologie, le scanner sert à suivre la « charge tumorale », c'est-à-dire le volume des lésions, entre deux examens. Aujourd'hui, ce suivi repose surtout sur des mesures manuelles (diamètres, critères de réponse). La radiomique propose d'aller plus loin en extrayant de l'image des descripteurs numériques de forme, d'intensité et de texture, qui décrivent le « phénotype » de chaque lésion.
 
 Les données du projet portent sur le mélanome métastatique, un cancer qui se dissémine dans de nombreux organes (poumon, peau, ganglions, foie, os). Cette diversité en fait un bon terrain pour étudier des lésions très différentes avec une même méthode.
 
-Le sujet original, présenté dans le diaporama de lancement, fixe trois objectifs :
+Le sujet, présenté dans le diaporama de présentation, fixe trois objectifs :
 
 1. Explorer le jeu de données.
 2. Prédire l'évolution des lésions entre l'examen initial (t0) et l'examen de suivi (t+1) : diminution, augmentation, etc.
@@ -126,35 +124,28 @@ Tous seront comparés à une référence naïve, avec des métriques adaptées �
 
 ## 6. Livrables et planning
 
-Le projet compte quatre rendus, du cahier des charges (25 novembre 2026) au rapport final et à la soutenance (26 février 2027). Les phases de travail entre ces dates sont une proposition, à ajuster avec l'encadrant.
+Le projet compte quatre rendus, du cahier des charges (25 novembre 2026) au rapport final et à la soutenance (26 février 2027).
 
 &#91;embedded content: planning prévisionnel · 4 rendus, 6 phases de travail\]
 
 | Rendu | Échéance | Contenu attendu |
 | --- | --- | --- |
-| Cahier des charges | Mercredi 25 novembre 2026 | Redéfinition du sujet, premières pistes, premières problématiques (ce document) |
-| Bibliographie | Mi-décembre 2026 | Synthèse des articles sur la radiomique, le suivi longitudinal et la prédiction de l'évolution tumorale |
-| Rapport intermédiaire et soutenance | Janvier 2027, date à préciser | Exploration du jeu de données, extraction des descripteurs, premiers modèles |
+| Cahier des charges | Mercredi 25 novembre 2026 | Redéfinition du sujet, premières pistes, premières problématiques |
+| Bibliographie | Décembre 2026 | Synthèse des articles sur la radiomique, le suivi longitudinal et la prédiction de l'évolution tumorale |
+| Rapport intermédiaire et soutenance | Janvier 2027 | Exploration du jeu de données, extraction des descripteurs, premiers modèles |
 | Rapport final et soutenance | 26 février 2027 | Rapport complet avec toutes les analyses, modèles comparés et explicabilité |
 
 Le code sera versionné sur le [dépôt GitHub du projet](https://github.com/melina64160/Projet_analyse_scanner) pour que les analyses du rapport final soient reproductibles.
 
 ## 7. Ressources et outils
 
-**Stack technique proposée par l'encadrant** (diaporama, diapo 12) : Python avec PyTorch pour les réseaux de neurones, scikit-learn pour le machine learning classique, et uv pour gérer l'environnement et les dépendances. La diapo montre aussi deux autres logos (un serpent vert, probablement Snakemake pour orchestrer le pipeline, et un robot jaune) à identifier avec l'encadrant.
+**Stack technique proposée par l'encadrant** (diaporama, diapo 12) : Python avec PyTorch pour les réseaux de neurones, scikit-learn pour le machine learning classique, uv pour gérer l'environnement et les dépendances, Snakemake ou Nextflow pour gérer le workflow.
 
 **Bibliothèques complémentaires envisagées** : nibabel ou SimpleITK (lecture des NIfTI), PyRadiomics (descripteurs handcrafted), pandas (tableaux de descripteurs), SHAP (explicabilité), matplotlib (figures).
 
-**Questions ouvertes pour l'encadrant**
-
-- Quelle est la date exacte du rendu intermédiaire de janvier ?
-- Faut-il garder le découpage train / validation / test fourni (240 / 30 / 30) ?
-- Quels seuils de variation de volume utiliser pour définir les classes d'évolution ?
-- Un serveur de calcul ou un GPU est-il disponible pour la radiomique profonde ?
-
 ## Sources
 
-- Diaporama de lancement « Analyse du phénotype tumoral visible au scanner », J. Dupont, Gustave Roussy (dossier du projet).
+- Diaporama de présentation « Analyse du phénotype tumoral visible au scanner », J. Dupont, Gustave Roussy (dossier du projet).
 - Gatidis S., Peisen F. et al., [A longitudinal whole-body CT dataset with manually annotated tumor lesions](https://www.nature.com/articles/s41597-026-07466-y), Scientific Data 13, 1139 (2026), lu le 23 novembre 2026.
 - Küstner T. et al., [Longitudinal-CT, dépôt FDAT de l'université de Tübingen](https://doi.org/10.57754/FDAT.75kj1-64747) (source officielle des données).
 - [Miroir Hugging Face du jeu de données Longitudinal-CT](https://huggingface.co/datasets/linghs007/Longitudinal-CT), consulté le 23 novembre 2026.
